@@ -190,7 +190,7 @@ We did see a lot of change between what values? Convert these to phylogenetic ha
   
   + Brownian Motion with sudden jumps (i.e. phylogenetic covariance that never goes away, but sudden shifts)
   
-  + Lineages very close to their adaptive optimum with very large amounts of phylogenetic signal and very narrow adaptive zones.
+  + Lineages very close to their adaptive optima with very large amounts of phylogenetic signal and very narrow adaptive zones.
 
 
 # Using bayou
@@ -336,6 +336,9 @@ qs <- qlnorm(quantiles, meanlog=par.halflife$meanlog, sdlog=par.halflife$sdlog)
 round(setNames(qs, quantiles), 2)
 
 ```
+
+##### Challenge question: 
+1. Joe is unsure of what prior to use for *alpha*, and doesn't want it to affect his analysis. He decides he wants to use an uniformative prior, so he uses a uniform distribution on *alpha* from 0 to 100. This allows very small (BM-like) and very large (White noise-like) values for *alpha*. How good a choice did Joe make? (Hint: try randomly generating values and converting to phylogenetic half-life)
 
 Second, we'll set the prior on the stationary variance of the OU process from the Blunderbuss model, as this seems to be the "niche width" we expect to see on million year timescales. We will center it at the estimate from the multiple-burst model from Uyeda et al. 2011. We could make the stationary variance broader than this if we didn't want to interpret the model as the "multiple-burst"
 model from Uyeda et al. 2011. For example, you might set the right tail to be something like 1 or 2 times the width of the entire clade's variance in trait values, and the left tail a few multiples of the population measurement error. This is still a really broad distribution, but even so can constrain the model in ways that often cause Maximum Likelihood based analysis to struggle. 
